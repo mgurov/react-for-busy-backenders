@@ -75,7 +75,7 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/dashboard">Data</Link>
+              <Link to="/data">Data</Link>
             </li>
           </ul>
 
