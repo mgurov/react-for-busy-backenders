@@ -101,8 +101,6 @@ function App() {
           </Switch>
         </div>
       </Router>
-
-      <Json value={data} />
     </div>
   );
 }
@@ -127,6 +125,7 @@ function Dashboard() {
   return (
     <div>
       <h2>Dashboard</h2>
+      <Json value={data} />
     </div>
   );
 }
