@@ -17,7 +17,7 @@ function App() {
         </a>
       </header>
 
-    <p>this is the json: <pre>{JSON.stringify(theDataExample, null, 2)}</pre></p>
+    <div>this is the json: <pre>{JSON.stringify(theDataExample, null, 2)}</pre></div>
 
     </div>
   );
