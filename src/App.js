@@ -141,7 +141,7 @@ function Data() {
 
       <Switch>
         <Route exact path={path}>
-          <DataList data={data} />
+          <DataList data={data} url={url} />
           <Json value={data} />
         </Route>
         <Route path={`${path}/:itemId`}>
@@ -163,11 +163,12 @@ function DataItem({data}) {
   </div>
 }
 
-function DataList({data}) {
-  
+function DataList({data, url}) {  
   return <div>
     <ul>
-      {data.data.map(item => <li>{item.first_name} {item.last_name} {item.id}</li>)}
+      {data.data.map(item => <li>
+        <Link to={`${url}/${item.id}`}>{item.first_name} {item.last_name}</Link>
+      </li>)}
     </ul>
   </div>
 }
