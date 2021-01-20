@@ -58,11 +58,15 @@ const data = {
 function App() {
   return (
     <div className="App">
-      <pre>
-        {JSON.stringify(data, null, 2)}
-      </pre>
+      <Json value={data}/>
     </div>
   );
+}
+
+function Json({value}) {
+  return <pre>
+    {JSON.stringify(value, null, 2)}
+  </pre>
 }
 
 export default App;
