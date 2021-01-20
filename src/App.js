@@ -90,13 +90,11 @@ function Users() {
         <tr key={user.id} value={user}>
           <td>{user.id}</td>
           <td>{user.first_name} {user.last_name}</td>
-          <td><Json value={user} /></td>
+          <td><Json value={user} open={false} /></td>
         </tr>
         )}
       </tbody>
     </Table>
-
-    {theDataExample.data.map(user => <Json key={user.id} value={user}/>)}
   </>);
   //TODO: show the rest
 }
