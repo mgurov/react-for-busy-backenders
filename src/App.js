@@ -75,8 +75,9 @@ function About() {
 function Users() {
   return (<>
     <h2>Users</h2>
-    <Json value={theDataExample.data}/>
+    {theDataExample.data.map(user => <Json value={user}/>)}
   </>);
+  //TODO: show the rest
 }
 
 const theDataExample = {
