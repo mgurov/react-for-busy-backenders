@@ -4,8 +4,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams,
+  useRouteMatch
 } from "react-router-dom";
+
+import _ from 'lodash';
 
 const data = {
   "page": 1,
@@ -125,12 +129,38 @@ function About() {
 }
 
 function Data() {
+
+  // The `path` lets us build <Route> paths that are
+  // relative to the parent route, while the `url` lets
+  // us build relative links.
+  let { path, url } = useRouteMatch();
+
   return (
     <div>
       <h2>Dashboard</h2>
-      <Json value={data} />
+
+      <Switch>
+        <Route exact path={path}>
+          <Json value={data} />
+        </Route>
+        <Route path={`${path}/:itemId`}>
+          <DataItem />
+        </Route>
+      </Switch>
     </div>
   );
+}
+
+function DataItem() {
+  let { itemId } = useParams();
+
+  let item = _.find(data.data, {'id': parseInt(itemId, 10)})
+  
+  return <div>
+    <span>will show item #{itemId}</span>
+    <Json value={item} />
+  </div>
+  
 }
 
 function Json({ value }) {
