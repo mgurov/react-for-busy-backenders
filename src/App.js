@@ -58,7 +58,7 @@ function App() {
       </div>
     </Router>
 
-    <div>this is the json: <Json value={theDataExample}/></div>
+    <div>this is the json: </div>
 
     </div>
   );
@@ -73,7 +73,10 @@ function About() {
 }
 
 function Users() {
-  return <h2>Users</h2>;
+  return (<>
+    <h2>Users</h2>
+    <Json value={theDataExample.data}/> 
+  </>);
 }
 
 const theDataExample = {
