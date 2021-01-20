@@ -100,6 +100,9 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <Route path="/about">
+          And even more about about
+        </Route>
       </Router>
     </div>
   );
