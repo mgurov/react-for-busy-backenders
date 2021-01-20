@@ -144,14 +144,14 @@ function Data() {
           <Json value={data} />
         </Route>
         <Route path={`${path}/:itemId`}>
-          <DataItem />
+          <DataItem data={data} />
         </Route>
       </Switch>
     </div>
   );
 }
 
-function DataItem() {
+function DataItem({data}) {
   let { itemId } = useParams();
 
   let item = _.find(data.data, {'id': parseInt(itemId, 10)})
@@ -160,7 +160,6 @@ function DataItem() {
     <span>will show item #{itemId}</span>
     <Json value={item} />
   </div>
-  
 }
 
 function Json({ value }) {
