@@ -3,6 +3,8 @@ import './App.css';
 
 import Json from './components/Json';
 
+import {Table} from 'react-bootstrap';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -75,6 +77,23 @@ function About() {
 function Users() {
   return (<>
     <h2>Users</h2>
+    <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        {theDataExample.data.map(user => 
+        <tr key={user.id} value={user}>
+          <td>{user.id}</td>
+          <td>{user.first_name} {user.last_name}</td>
+        </tr>
+        )}
+      </tbody>
+    </Table>
+
     {theDataExample.data.map(user => <Json key={user.id} value={user}/>)}
   </>);
   //TODO: show the rest
