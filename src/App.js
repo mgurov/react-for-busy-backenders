@@ -95,8 +95,8 @@ function App() {
             <Route path="/about">
               <About />
             </Route>
-            <Route path="/dashboard">
-              <Dashboard />
+            <Route path="/data">
+              <Data />
             </Route>
           </Switch>
         </div>
@@ -121,7 +121,7 @@ function About() {
   );
 }
 
-function Dashboard() {
+function Data() {
   return (
     <div>
       <h2>Dashboard</h2>
