@@ -1,6 +1,13 @@
 import './Json.css'
+import React from 'react'
 
-export default function Json({value}) {
-    return <pre className="Json">{JSON.stringify(value, null, 2)}</pre>
+class JsonComponent extends React.Component {
+    render() {
+        return <pre className="Json">
+            {JSON.stringify(this.props.value, null, 2)}
+        </pre>
+    }
 }
+
+export default JsonComponent;
   
