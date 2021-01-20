@@ -75,7 +75,7 @@ function About() {
 function Users() {
   return (<>
     <h2>Users</h2>
-    <Json value={theDataExample.data}/> 
+    <Json value={theDataExample.data}/>
   </>);
 }
 
