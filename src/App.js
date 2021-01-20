@@ -6,7 +6,8 @@ import {
   Route,
   Link,
   useParams,
-  useRouteMatch
+  useRouteMatch,
+  withRouter
 } from "react-router-dom";
 
 import _ from 'lodash';
@@ -141,7 +142,7 @@ function Data() {
 
       <Switch>
         <Route exact path={path}>
-          <DataList data={data} url={url} />
+          <DataListRouted data={data} url={url} />
           <Json value={data} />
         </Route>
         <Route path={`${path}/:itemId`}>
@@ -163,11 +164,19 @@ function DataItem({data}) {
   </div>
 }
 
-function DataList({data, url}) {  
+const DataListRouted = withRouter(DataList);
+
+function DataList({data, url, match, location, history}) {
+  
   return <div>
+
+    <div>
+      match <Json value={match} />
+    </div>
+    
     <ul>
       {data.data.map(item => <li>
-        <Link to={`${url}/${item.id}`}>{item.first_name} {item.last_name}</Link>
+        <Link to={`${match.url}/${item.id}`}>{item.first_name} {item.last_name}</Link>
       </li>)}
     </ul>
   </div>
