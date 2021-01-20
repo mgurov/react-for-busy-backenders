@@ -59,9 +59,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-
-    <div>this is the json: </div>
-
     </div>
   );
 }
@@ -75,6 +72,9 @@ function About() {
 }
 
 function Users() {
+
+  let {data: users, ...theRest} = theDataExample;
+
   return (<>
     <h2>Users</h2>
     <Table striped bordered hover>
@@ -86,7 +86,7 @@ function Users() {
         </tr>
       </thead>
       <tbody>
-        {theDataExample.data.map(user => 
+        {users.map(user => 
         <tr key={user.id} value={user}>
           <td>{user.id}</td>
           <td>{user.first_name} {user.last_name}</td>
@@ -95,8 +95,10 @@ function Users() {
         )}
       </tbody>
     </Table>
+
+    <div>The rest: <Json value={theRest} open={true} /></div>
+
   </>);
-  //TODO: show the rest
 }
 
 const theDataExample = {
