@@ -82,6 +82,7 @@ function Users() {
         <tr>
           <th>id</th>
           <th>Name</th>
+          <th>etc...</th>
         </tr>
       </thead>
       <tbody>
@@ -89,6 +90,7 @@ function Users() {
         <tr key={user.id} value={user}>
           <td>{user.id}</td>
           <td>{user.first_name} {user.last_name}</td>
+          <td><Json value={user} /></td>
         </tr>
         )}
       </tbody>
