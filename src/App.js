@@ -9,7 +9,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useRouteMatch
 } from "react-router-dom";
 
 function App() {
@@ -51,7 +52,7 @@ function App() {
             <About />
           </Route>
           <Route path="/users">
-            <Users />
+            <UsersLanding />
           </Route>
           <Route path="/">
             <Home />
@@ -71,9 +72,26 @@ function About() {
   return <h2>About</h2>;
 }
 
-function Users() {
+function UsersLanding() {
 
   let {data: users, ...theRest} = theDataExample;
+
+  let { path, url } = useRouteMatch();
+
+  return (<Switch>
+    <Route exact path={path}>
+      <UserList data={theDataExample} />
+    </Route>
+    <Route path={`${path}/id/:userId`}>
+      <User user={users[0]} />
+    </Route>
+  </Switch>);
+}
+
+
+function UserList({data}) {
+
+  let {data: users, ...theRest} = data;
 
   return (<>
     <h2>Users</h2>
@@ -97,6 +115,18 @@ function Users() {
     </Table>
 
     <div>The rest: <Json value={theRest} open={true} /></div>
+
+  </>);
+}
+
+function User({user}) {
+
+  
+  return (<>
+    <h2>User #{user.id}</h2>
+    
+
+    <div><Json value={user} open={true} /></div>
 
   </>);
 }
