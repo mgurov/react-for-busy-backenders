@@ -92,6 +92,7 @@ function UsersLanding() {
 function UserList({data}) {
 
   let {data: users, ...theRest} = data;
+  let { url } = useRouteMatch();
 
   return (<>
     <h2>Users</h2>
@@ -106,7 +107,7 @@ function UserList({data}) {
       <tbody>
         {users.map(user => 
         <tr key={user.id} value={user}>
-          <td><Link to={`/users/id/${user.id}`}>{user.id}</Link></td>
+          <td><Link to={`${url}/id/${user.id}`}>{user.id}</Link></td>
           <td>{user.first_name} {user.last_name}</td>
           <td><Json value={user} open={false} /></td>
         </tr>
