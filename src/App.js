@@ -106,7 +106,7 @@ function UserList({data}) {
       <tbody>
         {users.map(user => 
         <tr key={user.id} value={user}>
-          <td>{user.id}</td>
+          <td><Link to={`/users/id/${user.id}`}>{user.id}</Link></td>
           <td>{user.first_name} {user.last_name}</td>
           <td><Json value={user} open={false} /></td>
         </tr>
@@ -125,7 +125,6 @@ function User({user}) {
   return (<>
     <h2>User #{user.id}</h2>
     
-
     <div><Json value={user} open={true} /></div>
 
   </>);
