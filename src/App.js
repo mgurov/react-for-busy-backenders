@@ -77,9 +77,9 @@ function About() {
 
 function UsersLanding() {
 
-  let {data: users, ...theRest} = theDataExample;
+  let {data: users} = theDataExample;
 
-  let { path, url } = useRouteMatch();
+  let { path } = useRouteMatch();
 
   return (<Switch>
     <Route exact path={path}>
