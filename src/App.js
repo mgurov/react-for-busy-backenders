@@ -5,12 +5,15 @@ import Json from './components/Json';
 
 import {Table} from 'react-bootstrap';
 
+import _ from 'lodash';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useRouteMatch
+  useRouteMatch,
+  useParams
 } from "react-router-dom";
 
 function App() {
@@ -83,7 +86,7 @@ function UsersLanding() {
       <UserList data={theDataExample} />
     </Route>
     <Route path={`${path}/id/:userId`}>
-      <User user={users[0]} />
+      <User users={users} />
     </Route>
   </Switch>);
 }
@@ -120,11 +123,13 @@ function UserList({data}) {
   </>);
 }
 
-function User({user}) {
+function User({users}) {
 
+  let userId = parseInt(useParams().userId, 10);
+  let user = _.find(users, {id: userId})
   
   return (<>
-    <h2>User #{user.id}</h2>
+    <h2>User #{_.get(user, 'id')}</h2>
     
     <div><Json value={user} open={true} /></div>
 
