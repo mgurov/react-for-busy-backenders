@@ -6,13 +6,12 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useRouteMatch,
 } from "react-router-dom";
 
 function App() {
 
-
-  let { data: users } = theData
 
   return (
     <Router>
@@ -37,13 +36,37 @@ function App() {
             <Home />
           </Route>
           <Route path="/users">
-            <ListUsers users={users} />
+            <UsersLanding />
           </Route>
         </Switch>
 
       </div>
     </Router>
   );
+}
+
+function UsersLanding() {
+  // The `path` lets us build <Route> paths that are
+  // relative to the parent route, while the `url` lets
+  // us build relative links.
+  let { path, url } = useRouteMatch();
+
+  return (
+    <div>
+      <Switch>
+        <Route exact path={path}>
+          <ListUsers users={theData.data} />
+        </Route>
+        <Route path={`${path}/id/:userId`}>
+          <User user={theData.data[0]} />
+        </Route>
+      </Switch>
+    </div>
+  );
+}
+
+function User({user}) {
+  return <Json value={user} />
 }
 
 function ListUsers({ users }) {
