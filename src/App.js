@@ -1,6 +1,7 @@
 import './App.css';
 import Json from './components/Json'
 import { Table } from 'react-bootstrap'
+import _ from 'lodash'
 
 import {
   BrowserRouter as Router,
@@ -68,8 +69,10 @@ function UsersLanding() {
 
 function User({users}) {
   let { userId } = useParams();
+  let user = _.find(users, {'id': parseInt(userId, 10)})
   return <>
     <div>TODO: show user #{userId}</div>
+    <Json value={user} open={true} />
     <Json value={users} />
   </>
 }
