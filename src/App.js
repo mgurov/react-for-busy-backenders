@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Json from './components/Json'
-import {Table} from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 
 function App() {
   return (
@@ -24,34 +24,34 @@ function App() {
       <ListUsers users={theData.data} />
 
       <Json value={theData} open={true} />
-      
+
     </div>
   );
 }
 
-function ListUsers({users}) {
+function ListUsers({ users }) {
   return <>
     <Table striped bordered hover>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>First Name</th>
-        <th>json</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        users.map(user => {
-        return <tr key={user.id}>
-          <td>{user.id}</td>
-          <td>{user.first_name}</td>
-          <td><Json value={user} /></td>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>json</th>
         </tr>
-        })
-      }
-    </tbody>
+      </thead>
+      <tbody>
+        {
+          users.map(user => {
+            return <tr key={user.id}>
+              <td>{user.id}</td>
+              <td>{user.first_name}</td>
+              <td><Json value={user} /></td>
+            </tr>
+          })
+        }
+      </tbody>
     </Table>
-    <Json value={users}/>
+    <Json value={users} />
   </>
 }
 
