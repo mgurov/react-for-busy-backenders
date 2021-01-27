@@ -5,7 +5,7 @@ class Json extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {open: false}
+        this.state = {open: this.props.open}
         this.toggleState = () => {
             this.setState({open: !this.state.open})
         }

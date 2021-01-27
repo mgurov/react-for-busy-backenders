@@ -20,7 +20,7 @@ function App() {
         </a>
       </header>
 
-      <Json value={theData} />
+      <Json value={theData} open={true} />
       
     </div>
   );
