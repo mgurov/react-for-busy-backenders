@@ -1,6 +1,6 @@
 import './App.css';
 import Json from './components/Json'
-import { Table } from 'react-bootstrap'
+import { Table, ListGroup, Alert } from 'react-bootstrap'
 import _ from 'lodash'
 
 import {
@@ -70,10 +70,21 @@ function UsersLanding() {
 function User({users}) {
   let { userId } = useParams();
   let user = _.find(users, {'id': parseInt(userId, 10)})
+  if (!user) {
+    return <Alert variant="danger">
+      Couldn't find user with id {userId}
+    </Alert>;
+  }
   return <>
-    <div>TODO: show user #{userId}</div>
+    <div>show user #{userId}</div>
+    <ListGroup>
+      {
+        _.map(user, (value, key) => {
+          return <ListGroup.Item key={key}>{key}: {value}</ListGroup.Item>
+        })
+      }
+    </ListGroup>
     <Json value={user} open={true} />
-    <Json value={users} />
   </>
 }
 
