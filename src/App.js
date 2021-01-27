@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Json from './components/Json'
 import { Table } from 'react-bootstrap'
@@ -13,7 +12,7 @@ import {
 function App() {
 
 
-  let { data: users, ...theRest } = theData
+  let { data: users } = theData
 
   return (
     <Router>
@@ -76,22 +75,6 @@ function Home() {
   return (
     <div>
       <h2>Home</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
     </div>
   );
 }
