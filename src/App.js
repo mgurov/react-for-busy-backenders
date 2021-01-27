@@ -25,10 +25,7 @@ function App() {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/users">Users</Link>
               </li>
             </ul>
 
@@ -40,18 +37,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
+          <Route path="/users">
+            <ListUsers users={users} />
           </Route>
         </Switch>
-
-
-        <ListUsers users={users} />
-
-        <Json value={theRest} open={false} />
 
       </div>
     </Router>
