@@ -57,7 +57,7 @@ function UsersLanding() {
     <div>
       <Switch>
         <Route exact path={path}>
-          <ListUsers users={theData.data} />
+          <ListUsers users={theData.data} url={url} />
         </Route>
         <Route path={`${path}/id/:userId`}>
           <User users={theData.data} />
@@ -88,7 +88,7 @@ function User({users}) {
   </>
 }
 
-function ListUsers({ users }) {
+function ListUsers({ users, url }) {
   return <>
     <Table striped bordered hover>
       <thead>
@@ -102,7 +102,7 @@ function ListUsers({ users }) {
         {
           users.map(user => {
             return <tr key={user.id}>
-              <td>{user.id}</td>
+              <td><a href={`${url}/id/${user.id}`}>{user.id}</a></td>
               <td>{user.first_name}</td>
               <td><Json value={user} /></td>
             </tr>
