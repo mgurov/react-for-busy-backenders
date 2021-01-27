@@ -4,6 +4,10 @@ import Json from './components/Json'
 import { Table } from 'react-bootstrap'
 
 function App() {
+
+
+  let {data:users, ...theRest} = theData
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,9 +25,9 @@ function App() {
         </a>
       </header>
 
-      <ListUsers users={theData.data} />
+      <ListUsers users={users} />
 
-      <Json value={theData} open={false} />
+      <Json value={theRest} open={false} />
 
     </div>
   );
