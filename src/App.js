@@ -8,6 +8,7 @@ import {
   Route,
   Link,
   useRouteMatch,
+  useParams,
 } from "react-router-dom";
 
 function App() {
@@ -58,15 +59,19 @@ function UsersLanding() {
           <ListUsers users={theData.data} />
         </Route>
         <Route path={`${path}/id/:userId`}>
-          <User user={theData.data[0]} />
+          <User users={theData.data} />
         </Route>
       </Switch>
     </div>
   );
 }
 
-function User({user}) {
-  return <Json value={user} />
+function User({users}) {
+  let { userId } = useParams();
+  return <>
+    <div>TODO: show user #{userId}</div>
+    <Json value={users} />
+  </>
 }
 
 function ListUsers({ users }) {
