@@ -12,7 +12,9 @@ class Json extends React.Component {
         if (this.state.open) {
             return <pre><code>{JSON.stringify(this.props.value, null, 2)}</code></pre>;
         } else {
-            return <Button size="sm">json</Button>
+            return <>
+            <Button size="sm">json</Button>
+            </>
         }
         
     }
