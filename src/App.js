@@ -102,7 +102,7 @@ function ListUsers({ users, url }) {
         {
           users.map(user => {
             return <tr key={user.id}>
-              <td><a href={`${url}/id/${user.id}`}>{user.id}</a></td>
+              <td><Link to={`${url}/id/${user.id}`}>{user.id}</Link></td>
               <td>{user.first_name}</td>
               <td><Json value={user} /></td>
             </tr>
