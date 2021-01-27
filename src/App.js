@@ -19,10 +19,14 @@ function App() {
         </a>
       </header>
 
-      <pre><code>{JSON.stringify(theData, null, 2)}</code></pre>
+      <Json value={theData} />
       
     </div>
   );
+}
+
+function Json({value}) {
+  return <pre><code>{JSON.stringify(value, null, 2)}</code></pre>
 }
 
 const theData = {
