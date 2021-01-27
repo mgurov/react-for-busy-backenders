@@ -117,6 +117,7 @@ function Home() {
   return (
     <div>
       <h2>Home</h2>
+      <Link to={`/users/id/1`}>Check, for example, this user!</Link>
     </div>
   );
 }
