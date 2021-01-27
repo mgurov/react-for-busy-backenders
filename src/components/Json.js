@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Button} from 'react-bootstrap'
 
 class Json extends React.Component {
 
@@ -12,7 +12,7 @@ class Json extends React.Component {
         if (this.state.open) {
             return <pre><code>{JSON.stringify(this.props.value, null, 2)}</code></pre>;
         } else {
-            return <button className="btn primary">json</button>
+            return <Button size="sm">json</Button>
         }
         
     }
