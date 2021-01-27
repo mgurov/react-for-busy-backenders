@@ -23,7 +23,7 @@ function App() {
 
       <ListUsers users={theData.data} />
 
-      <Json value={theData} open={true} />
+      <Json value={theData} open={false} />
 
     </div>
   );
@@ -51,7 +51,6 @@ function ListUsers({ users }) {
         }
       </tbody>
     </Table>
-    <Json value={users} />
   </>
 }
 
