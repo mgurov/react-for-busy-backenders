@@ -13,26 +13,28 @@ import {
 function App() {
 
 
-  let {data:users, ...theRest} = theData
+  let { data: users, ...theRest } = theData
 
   return (
-    <div className="App">
-      <header className="App-header">
-      <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/dashboard">Dashboard</Link>
+              </li>
+            </ul>
 
-        <hr />
+            <hr />
+          </div>
+        </header>
 
         <Switch>
           <Route exact path="/">
@@ -45,15 +47,14 @@ function App() {
             <Dashboard />
           </Route>
         </Switch>
+
+
+        <ListUsers users={users} />
+
+        <Json value={theRest} open={false} />
+
       </div>
     </Router>
-      </header>
-
-      <ListUsers users={users} />
-
-      <Json value={theRest} open={false} />
-
-    </div>
   );
 }
 
