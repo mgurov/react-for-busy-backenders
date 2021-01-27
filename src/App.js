@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import Json from './components/Json'
 
 function App() {
   return (
@@ -23,10 +24,6 @@ function App() {
       
     </div>
   );
-}
-
-function Json({value}) {
-  return <pre><code>{JSON.stringify(value, null, 2)}</code></pre>
 }
 
 const theData = {
