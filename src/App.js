@@ -20,10 +20,16 @@ function App() {
         </a>
       </header>
 
+      <ListUsers users={theData.data} />
+
       <Json value={theData} open={true} />
       
     </div>
   );
+}
+
+function ListUsers({users}) {
+  return <Json value={users}/>
 }
 
 const theData = {
