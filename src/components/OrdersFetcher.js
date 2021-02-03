@@ -17,7 +17,7 @@ class OrderFetcher extends React.Component {
     }
 
     componentDidMount() {
-        fetch("/api/orders/?limit=2")
+        fetch("/api/orders/?limit=1000")
             .then(res => res.json())
             //TODO: status should be 200
             .then(
