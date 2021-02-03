@@ -17,7 +17,13 @@ function Order() {
 }
 
 function RenderOrder({order}) {
-    return <Json value={order} open={true} />
+    return <>
+        <Json value={order} open={true} />
+        <Fetcher 
+        url={`/api/customers/id/${order.customerId}`} 
+        onData={customer => <Json value={customer} />} 
+        />
+    </>
 }
 
 export default Order; 
