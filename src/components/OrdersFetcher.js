@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap'
 import {
     Link,
   } from "react-router-dom";
-import Fetcher from './Fetcher'  
+import Fetcher from './Fetcher'
 
 function OrderFun({linkUrl}) {
     return <Fetcher url="/api/orders/?limit=1000" onData={data => <OrdersList linkUrl={linkUrl} data={data} />} />

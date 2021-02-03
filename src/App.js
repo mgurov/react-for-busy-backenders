@@ -3,6 +3,7 @@ import Json from './components/Json'
 import { Table, ListGroup, Alert } from 'react-bootstrap'
 import _ from 'lodash'
 import OrdersFetcher from './components/OrdersFetcher'
+import OrderLanding from './components/OrderLanding'
 
 import {
   BrowserRouter as Router,
@@ -58,41 +59,14 @@ function OrdersLanding() {
     <div>
       <Switch>
         <Route exact path={path}>
-          <ListOrders linkUrl={url} />
+          <OrdersFetcher linkUrl={url} />
         </Route>
         <Route path={`${path}/id/:orderId`}>
-          <Order />
+          <OrderLanding />
         </Route>
       </Switch>
     </div>
   );
-}
-
-function Order({users}) {
-  let { userId } = useParams();
-  let user = _.find(users, {'id': parseInt(userId, 10)})
-  if (!user) {
-    return <Alert variant="danger">
-      Couldn't find user with id {userId}
-    </Alert>;
-  }
-  return <>
-    <div>show user #{userId}</div>
-    <ListGroup>
-      {
-        _.map(user, (value, key) => {
-          return <ListGroup.Item key={key}>{key}: {value}</ListGroup.Item>
-        })
-      }
-    </ListGroup>
-    <Json value={user} open={true} />
-  </>
-}
-
-function ListOrders({ linkUrl }) {
-
-  //TODO: better link url
-  return <OrdersFetcher linkUrl={linkUrl} />
 }
 
 function Home() {
