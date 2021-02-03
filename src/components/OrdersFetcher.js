@@ -6,7 +6,7 @@ import {
   } from "react-router-dom";
   
 
-class OrderFetcher extends React.Component {
+class Fetcher extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -17,7 +17,7 @@ class OrderFetcher extends React.Component {
     }
 
     componentDidMount() {
-        fetch("/api/orders/?limit=1000")
+        fetch(this.props.url)
             .then(res => res.json())
             //TODO: status should be 200
             .then(
@@ -46,14 +46,16 @@ class OrderFetcher extends React.Component {
         } else if (!isLoaded) {
             return <div>Loading...</div>;
         } else {
-            return (
-                <OrdersList linkUrl={this.props.linkUrl} orders={data} />
-            );
+            return this.props.onData(data);
         }
     }
 }
 
-function OrdersList({ linkUrl, orders }) {
+function OrderFun({linkUrl}) {
+    return <Fetcher url="/api/orders/?limit=1000" onData={data => <OrdersList linkUrl={linkUrl} data={data} />} />
+} 
+
+function OrdersList({ linkUrl, data:orders }) {
   
     return <>
       <Table striped bordered hover>
@@ -80,4 +82,4 @@ function OrdersList({ linkUrl, orders }) {
   }
   
 
-export default OrderFetcher;
+export default OrderFun;
