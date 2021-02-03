@@ -13,7 +13,7 @@ class Json extends React.Component {
 
     render() {
         if (this.state.open) {
-            return <pre onClick={this.toggleState}><code>{JSON.stringify(this.props.value, null, 2)}</code></pre>;
+            return <pre onDoubleClick={this.toggleState}><code>{JSON.stringify(this.props.value, null, 2)}</code></pre>;
         } else {
             return <>
             <Button size="sm" variant="light" onClick={this.toggleState}>json</Button>
