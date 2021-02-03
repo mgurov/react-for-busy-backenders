@@ -17,7 +17,7 @@ function Order() {
 }
 
 function RenderOrder({order}) {
-    return <Json value={order} />
+    return <Json value={order} open={true} />
 }
 
 export default Order; 
